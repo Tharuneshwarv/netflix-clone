@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../components/Navbar/Navbar'
-
+import Navbar from '../../components/Navbar/Navbar'
+import './Homepage.css'
 function Homepage() {
   return (
     <div className='homepage'>
