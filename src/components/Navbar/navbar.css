@@ -7,21 +7,19 @@
 .navbar {
     background-color: #0c0b0b;
     width: 100%;
-    height: 50px;
     position: fixed;
 }
 
 #navbar__logo {
-    left: 0px;
-    width: 80px;
+    width: 100px;
     object-fit: contain;
-    position: fixed;
+    padding-left: 30px;
+    cursor: pointer;
 }
 
 #navbar__avatar {
-    position: fixed;
-    right: 20px;
-    padding-right: 20px;
+    padding: 10px 40px;
     width: 40px;
     object-fit: contain;
+    cursor: pointer;
 }
