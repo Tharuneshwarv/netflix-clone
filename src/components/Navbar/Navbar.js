@@ -12,7 +12,6 @@ function Navbar() {
   }, []);
 
   function changeNavbarOnScroll() {
-    console.log('scrolled ',  window.scrollY);
     if(window.scrollY > 100)
       setBgColor(true)
     else
