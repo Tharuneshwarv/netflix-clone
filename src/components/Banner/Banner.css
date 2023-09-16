@@ -1,0 +1,61 @@
+.banner {
+    background: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/736dee100650681.5f0da29e3cce4.jpg');
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    object-fit: contain;
+}
+
+.banner__content {
+    color: white;
+    margin-left: 50px;
+    padding-top: 100px;
+    height: 200px;
+    padding-bottom: 1rem;
+}
+
+.banner__title {
+    font-size: 3rem;
+    padding-bottom: 1rem;
+}
+
+.banner__buttons {
+    padding-bottom: 1.5rem;
+}
+
+.banner__button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    border: none;
+    outline: none;
+    color: white;
+    background: none;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    background-color:rgba(0, 0, 0, 0.7);
+    font-size: 1.2rem;
+    letter-spacing: 1.2px;
+    
+}
+
+.banner__button:hover {
+    color: black;
+    background-color: white;
+    transition: all 0.5s;
+}
+
+.banner__description {
+    letter-spacing: 1px;
+    line-height: 1.2rem;
+    font-size: medium;
+    width: 45rem;
+    font-weight: 500;
+    height: 90px;
+}
+
+.banner__fadeBottom {
+    height: 9rem;
+    background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+}
