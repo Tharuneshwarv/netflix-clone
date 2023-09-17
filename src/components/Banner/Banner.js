@@ -1,26 +1,31 @@
-import React, { useEffect } from 'react'
-import { getTopRatedMovie } from '../../service/requests'
+import React, { useEffect, useState } from 'react'
+import { getMovie, requests } from '../../service/requests'
 import './Banner.css'
 
 function Banner() {
 
+  const [movie, setMovie] = useState([]);
   useEffect(() => {
-    getTopRatedMovie();
+    getMovie(requests.TopRated).then(res =>
+      setMovie(res[Math.floor(Math.random() * res.length -1)])
+    );
   }, []);
-
+ 
   const truncateDesc = (string) => {
     return string?.length > 200 ? string.substring(0, 199) + '...' : string;
   }
 
   return (
-    <header className='banner'>
+    <header className='banner' style={{
+      backgroundImage: `url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`
+    }}>
       <div className='banner__content'>
-        <h1 className='banner__title'>Movie Name</h1>
+        <h1 className='banner__title'>{movie?.title || movie?.original_name || movie?.name}</h1>
         <div className='banner__buttons'>
           <button className='banner__button'>Play</button>
           <button className='banner__button'>Watch Later</button>
         </div>
-        <p className='banner__description'>{truncateDesc('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')}</p>
+        <p className='banner__description'>{truncateDesc(movie.overview)}</p>
       </div>
       <div className='banner__fadeBottom'></div>
     </header>
