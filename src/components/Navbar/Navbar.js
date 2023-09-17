@@ -5,18 +5,15 @@ function Navbar() {
   let [bgColor, setBgColor] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('scroll', changeNavbarOnScroll());
-    return (
-      window.removeEventListener('scroll', changeNavbarOnScroll())
-    );
+    window.addEventListener('scroll', changeNavbarOnScroll);
+    return () => {
+      window.removeEventListener('scroll', changeNavbarOnScroll)
+    };
   }, []);
 
-  function changeNavbarOnScroll() {
-    if(window.scrollY > 100)
-      setBgColor(true)
-    else
-      setBgColor(false);
-  }
+  const changeNavbarOnScroll = () => {
+    window.scrollY > 100 ? setBgColor(true) : setBgColor(false);
+  };
 
   return (
     <div className={`navbar ${bgColor ? 'navbar__black': ''}`}>
