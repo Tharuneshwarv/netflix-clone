@@ -1,6 +1,5 @@
 import axiosInstance from "./axios"
 import {API_KEY} from "./axios"
-import axios from "axios";
 
 export const requests = {
     TopRated: `/movie/top_rated`,
@@ -23,11 +22,12 @@ export const getMovie = async (url) => {
       headers: {
         accept: 'application/json'
       }
-    });
-  
-    if(res.status === 200)
-      return res.data.results;
-    else
+    }).then(res => {
+      if(res.status === 200)
+        return res.data.results;
+    }).catch(error => {
+      console.log(error);
       return [];
-        
+    });
+    return res;  
 }
