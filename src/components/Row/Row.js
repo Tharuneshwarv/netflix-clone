@@ -10,7 +10,7 @@ function Row({title, url }) {
             setMovies(res);
         })
     }, [url])
-    return (
+    return ( movies?.length > 0 &&
         <div className='row'>
             <h2 className='row__title'>{title}</h2>
             <div className='row__posters'>
