@@ -12,7 +12,7 @@ function Row({title, url }) {
     }, [url])
     return ( movies?.length > 0 &&
         <div className='row'>
-            <h2 className='row__title'>{title}</h2>
+            <h2 className='row__title'>{title} 123</h2>
             <div className='row__posters'>
                     {movies.map(movie => (movie?.backdrop_path && 
                         <img id={`${movie.id}`} className='row__poster' src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title || movie.original_name}/>
