@@ -23,11 +23,16 @@ jobs:
 
       - name: Build
         run: npm run build
-      
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_dir: ./build
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git Identity
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "your.email@example.com"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+        run: |
+          npm run deploy
