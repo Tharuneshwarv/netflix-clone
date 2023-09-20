@@ -25,6 +25,7 @@ jobs:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         with:
           script: |
+            console.log(process.env.TMDB_API_KEY)
             git config --global user.name "TharuneshwarV"
             git config --global user.email "tharuneshwarv@gmail.com"
             git checkout gh-pages
