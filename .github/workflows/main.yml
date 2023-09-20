@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Deploy React App
 
 on:
   push:
@@ -13,26 +13,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-
       - name: Install dependencies
         run: npm install
 
-      - name: Build
+      - name: Build React app
         run: npm run build
 
-      - name: Configure Git Identity
-        run: |
-          git config --global user.name "TharuneshwarV"
-          git config --global user.email "tharuneshwarv@gmail.com"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Deploy
+      - name: Deploy to GitHub Pages
+        uses: actions/github-script@v6
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-        run: |
-          npm run deploy
+        with:
+          script: |
+            git config --global user.name "TharuneshwarV"
+            git config --global user.email "tharuneshwarv@gmail.com"
+            git checkout gh-pages
+            git rm -rf .
+            cp -r build/. .
+            git add .
+            git commit -m "Deploy React app"
+            git push origin gh-pages
