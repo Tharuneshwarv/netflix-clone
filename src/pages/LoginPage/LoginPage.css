@@ -16,7 +16,6 @@
     outline: none;
     font-weight: 700;
     cursor: pointer;
-    border-radius: 1vh;
 }
 
 .loginpage__logo {
@@ -42,9 +41,8 @@
     position: absolute;
     top: 30%;
     padding: 20px;
-    margin-left: 25%;
-    margin-right: auto;
     text-align: center;
+    width: -webkit-fill-available;
 
 }
 
@@ -71,7 +69,7 @@
     outline-width: 0;
     border: none;
     height: 30px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
 }
 
