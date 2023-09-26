@@ -27,10 +27,28 @@
 }
 
 #navbar__avatar {
-    position: fixed;
-    right: 20px;
-    top: 15px;
     width: 40px;
     object-fit: contain;
+    cursor: pointer;
+}
+
+.navbar__right {
+    position: fixed;
+    right: 20px;
+    display: flex;
+    top: 15px;
+    justify-content: space-between;
+    width: 10%;
+}
+
+.navbar__signout {
+    color: white;
+    background: red;
+    outline-width: 0;
+    border: none;
+    padding: 1px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
 }
