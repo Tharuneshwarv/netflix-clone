@@ -41,7 +41,7 @@
     width: 10%;
 }
 
-.navbar__signout {
+.navbar__logout {
     color: white;
     background: red;
     outline-width: 0;

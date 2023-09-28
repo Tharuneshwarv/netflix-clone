@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import './Login.css'
 import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
@@ -7,6 +7,7 @@ import { login, populateUser } from '../../redux/reducers/userReducer';
 
 function Login() {
 
+    const [login, setLogin] = useState(true);
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
     const dispatch = useDispatch();
@@ -31,18 +32,25 @@ function Login() {
         .catch((e) => alert(e));
 
     }
+
     return (
         <div className='login'>
-            <h1>Log In</h1>
+            <h1>{login ? 'Log In' : 'SignUp'}</h1>
             <form>
                 <input ref={emailRef} type='email' placeholder='Email'/>
                 <input ref={passwordRef} type='password' placeholder='Password' />
-                <button type='submit' onClick={(e) => logIn(e)}>Log In</button>
+                { login ?
+                    (<button type='submit' onClick={(e) => logIn(e)}>Log In</button>):
+                    (<button type='submit' onClick={(e) => register(e)}>Sign Up</button>)
+                }
+                
+                
             </form>
+            {login && 
             <h4>
                 <span className='login__newToNetflix'>New to Netflix? </span> 
-                <span className='login__link' onClick={(e) => register(e)}> SignUp Now.</span>
-            </h4>
+                <span className='login__link' onClick={(e) => setLogin(false)}> SignUp Now.</span>
+            </h4>}
         </div>
     )
 }

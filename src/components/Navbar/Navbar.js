@@ -22,10 +22,10 @@ function Navbar() {
     window.scrollY > 100 ? setBgColor(true) : setBgColor(false);
   };
 
-  const signOutEvent = (event) => {
+  const logOutEvent = (event) => {
     event.preventDefault();
-    signOut(auth).then(() => console.log("Signout Successful..."))
-    .catch((error) => alert("SignOut unsuccessful"));
+    signOut(auth).then(() => console.log("logout Successful..."))
+    .catch((error) => alert("logOut unsuccessful"));
   }
 
   return (
@@ -33,7 +33,7 @@ function Navbar() {
       <div className='navbar__content'>
         <img id='navbar__logo' src='https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png' alt='logo'  onClick={(e) => navigate("/")}/>
         <div className='navbar__right'>
-          <button className='navbar__signout' onClick={(e) => signOutEvent(e)}>Sign Out</button>
+          <button className='navbar__logout' onClick={(e) => logOutEvent(e)}>Log Out</button>
           <img id='navbar__avatar' src='https://i.pinimg.com/originals/61/54/76/61547625e01d8daf941aae3ffb37f653.png' alt='avatar' onClick={(e) => navigate("/profile")}/>
         </div> 
       </div>
